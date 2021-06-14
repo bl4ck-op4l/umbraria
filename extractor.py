@@ -31,7 +31,7 @@ class Extractor:
         for let1 in self._found_letters:
             for i in range(len(res)):
                 let2 = res[i]
-                if math.dist(let1[:2], let2[:2]) < 10:
+                if dist(let1[:2], let2[:2]) < 10:
                     if let2[2] < let1[2]:
                         res[i] = let1
                     break
@@ -66,3 +66,6 @@ class Extractor:
 
 def _add_letter(points, letter):
     return list(map(lambda x: (*x, letter), points))
+
+def dist(p1, p2):
+    return math.sqrt((p1[0]-p2[0])**2 + (p1[1]+p2[1])**2)
